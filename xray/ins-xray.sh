@@ -525,45 +525,45 @@ systemctl restart runn
 cd /usr/bin/
 # vmess
 echo -e "${Green}[ INFO ]${NC} ${Green}Downloading Main Vmess${NC}"
-wget -O addws "https://raw.githubusercontent.com/Jengkolonline/supreme/main/xray/addws.sh" && chmod +x addws
-wget -O trialws "https://raw.githubusercontent.com/Jengkolonline/supreme/main/xray/trialws.sh" && chmod +x trialws
-wget -O renewws "https://raw.githubusercontent.com/Jengkolonline/supreme/main/xray/renewws.sh" && chmod +x renewws
-wget -O delws "https://raw.githubusercontent.com/Jengkolonline/supreme/main/xray/delws.sh" && chmod +x delws
-wget -O cek-ws "https://raw.githubusercontent.com/Jengkolonline/supreme/main/xray/cek-ws.sh" && chmod +x cek-ws
+wget -O addws "https://raw.githubusercontent.com/Jengkoltunnel/supreme/main/xray/addws.sh" && chmod +x addws
+wget -O trialws "https://raw.githubusercontent.com/Jengkoltunnel/supreme/main/xray/trialws.sh" && chmod +x trialws
+wget -O renewws "https://raw.githubusercontent.com/Jengkoltunnel/supreme/main/xray/renewws.sh" && chmod +x renewws
+wget -O delws "https://raw.githubusercontent.com/Jengkoltunnel/supreme/main/xray/delws.sh" && chmod +x delws
+wget -O cek-ws "https://raw.githubusercontent.com/Jengkoltunnel/supreme/main/xray/cek-ws.sh" && chmod +x cek-ws
 sleep 0.5
 # vless
 echo -e "${Green}[ INFO ]${NC} ${Green}Downloading Main Vless${NC}"
-wget -O add-vless "https://raw.githubusercontent.com/Jengkolonline/supreme/main/xray/add-vless.sh" && chmod +x add-vless
-wget -O trialvless "https://raw.githubusercontent.com/Jengkolonline/supreme/main/xray/trialvless.sh" && chmod +x trialvless
-wget -O renew-vless "https://raw.githubusercontent.com/Jengkolonline/supreme/main/xray/renew-vless.sh" && chmod +x renew-vless
-wget -O del-vless "https://raw.githubusercontent.com/Jengkolonline/supreme/main/xray/del-vless.sh" && chmod +x del-vless
-wget -O cek-vless "https://raw.githubusercontent.com/Jengkolonline/supreme/main/xray/cek-vless.sh" && chmod +x cek-vless
+wget -O add-vless "https://raw.githubusercontent.com/Jengkoltunnel/supreme/main/xray/add-vless.sh" && chmod +x add-vless
+wget -O trialvless "https://raw.githubusercontent.com/Jengkoltunnel/supreme/main/xray/trialvless.sh" && chmod +x trialvless
+wget -O renew-vless "https://raw.githubusercontent.com/Jengkoltunnel/supreme/main/xray/renew-vless.sh" && chmod +x renew-vless
+wget -O del-vless "https://raw.githubusercontent.com/Jengkoltunnel/supreme/main/xray/del-vless.sh" && chmod +x del-vless
+wget -O cek-vless "https://raw.githubusercontent.com/Jengkoltunnel/supreme/main/xray/cek-vless.sh" && chmod +x cek-vless
 sleep 0.5
 # trojan
 echo -e "${Green}[ INFO ]${NC} ${Green}Downloading Main Trojan${NC}"
-wget -O add-tr "https://raw.githubusercontent.com/Jengkolonline/supreme/main/xray/add-tr.sh" && chmod +x add-tr
-wget -O trialtrojan "https://raw.githubusercontent.com/Jengkolonline/supreme/main/xray/trialtrojan.sh" && chmod +x trialtrojan
-wget -O del-tr "https://raw.githubusercontent.com/Jengkolonline/supreme/main/xray/del-tr.sh" && chmod +x del-tr
-wget -O renew-tr "https://raw.githubusercontent.com/Jengkolonline/supreme/main/xray/renew-tr.sh" && chmod +x renew-tr
-wget -O cek-tr "https://raw.githubusercontent.com/Jengkolonline/supreme/main/xray/cek-tr.sh" && chmod +x cek-tr
+wget -O add-tr "https://raw.githubusercontent.com/Jengkoltunnel/supreme/main/xray/add-tr.sh" && chmod +x add-tr
+wget -O trialtrojan "https://raw.githubusercontent.com/Jengkoltunnel/supreme/main/xray/trialtrojan.sh" && chmod +x trialtrojan
+wget -O del-tr "https://raw.githubusercontent.com/Jengkoltunnel/supreme/main/xray/del-tr.sh" && chmod +x del-tr
+wget -O renew-tr "https://raw.githubusercontent.com/Jengkoltunnel/supreme/main/xray/renew-tr.sh" && chmod +x renew-tr
+wget -O cek-tr "https://raw.githubusercontent.com/Jengkoltunnel/supreme/main/xray/cek-tr.sh" && chmod +x cek-tr
 sleep 0.5
 # shadowsocks
 echo -e "${Green}[ INFO ]${NC} ${Green}Downloading Main shadowsoks${NC}"
-wget -O add-ssws "https://raw.githubusercontent.com/Jengkolonline/supreme/main/xray/add-ssws.sh" && chmod +x add-ssws
-wget -O trialssws "https://raw.githubusercontent.com/Jengkolonline/supreme/main/xray/trialssws.sh" && chmod +x trialssws
-wget -O del-ssws "https://raw.githubusercontent.com/Jengkolonline/supreme/main/xray/del-ssws.sh" && chmod +x del-ssws
-wget -O renew-ssws "https://raw.githubusercontent.com/Jengkolonline/supreme/main/xray/renew-ssws.sh" && chmod +x renew-ssws
-wget -O tcp "https://raw.githubusercontent.com/Jengkolonline/supreme/main/tcp.sh" && chmod +x tcp.sh && ./tcp.sh
-wget -O nf "https://raw.githubusercontent.com/Jengkolonline/nonton/main/nf.sh" && chmod +x nf.sh && ./nf.sh
+wget -O add-ssws "https://raw.githubusercontent.com/Jengkoltunnel/supreme/main/xray/add-ssws.sh" && chmod +x add-ssws
+wget -O trialssws "https://raw.githubusercontent.com/Jengkoltunnel/supreme/main/xray/trialssws.sh" && chmod +x trialssws
+wget -O del-ssws "https://raw.githubusercontent.com/Jengkoltunnel/supreme/main/xray/del-ssws.sh" && chmod +x del-ssws
+wget -O renew-ssws "https://raw.githubusercontent.com/Jengkoltunnel/supreme/main/xray/renew-ssws.sh" && chmod +x renew-ssws
+wget -O tcp "https://raw.githubusercontent.com/Jengkoltunnel/supreme/main/tcp.sh" && chmod +x tcp.sh && ./tcp.sh
+wget -O nf "https://raw.githubusercontent.com/Jengkoltunnel/nonton/main/nf.sh" && chmod +x nf.sh && ./nf.sh
 sleep 0.5
 #Sistem Tambahan
-wget -O menu-tambah "https://raw.githubusercontent.com/Jengkolonline/begeg/main/menu-tambah.sh" && chmod +x menu-tambah
-wget -O global "https://raw.githubusercontent.com/Jengkolonline/gelo/main/gelo.sh" && chmod +x global
-wget -O sc "https://raw.githubusercontent.com/Jengkolonline/begeg/main/sc.sh" && chmod +x sc
-wget -O killtrial "https://raw.githubusercontent.com/Jengkolonline/supreme/main/xray/killtrial.sh" && chmod +x killtrial
-wget -O jilmek "https://raw.githubusercontent.com/Jengkolonline/supreme/main/xray/jilmek.sh" && chmod +x jilmek
-wget -O bdsm "https://raw.githubusercontent.com/Jengkolonline/supreme/main/xray/bdsm.sh" && chmod +x bdsm
-wget -O limiter "https://raw.githubusercontent.com/Jengkolonline/supreme/main/xray/limiter.sh" && chmod +x limiter
+wget -O menu-tambah "https://raw.githubusercontent.com/Jengkoltunnel/begeg/main/menu-tambah.sh" && chmod +x menu-tambah
+wget -O global "https://raw.githubusercontent.com/Jengkoltunnel/gelo/main/gelo.sh" && chmod +x global
+wget -O sc "https://raw.githubusercontent.com/Jengkoltunnel/begeg/main/sc.sh" && chmod +x sc
+wget -O killtrial "https://raw.githubusercontent.com/Jengkoltunnel/supreme/main/xray/killtrial.sh" && chmod +x killtrial
+wget -O jilmek "https://raw.githubusercontent.com/Jengkoltunnel/supreme/main/xray/jilmek.sh" && chmod +x jilmek
+wget -O bdsm "https://raw.githubusercontent.com/Jengkoltunnel/supreme/main/xray/bdsm.sh" && chmod +x bdsm
+wget -O limiter "https://raw.githubusercontent.com/Jengkoltunnel/supreme/main/xray/limiter.sh" && chmod +x limiter
 cd
 #Bot menu
 wget -O /usr/bin/bot-cek-login-ssh "https://raw.githubusercontent.com/Jengkolonline/bot/main/bot-cek-login-ssh.sh" && chmod +x /usr/bin/bot-cek-login-ssh
