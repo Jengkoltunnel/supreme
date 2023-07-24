@@ -554,12 +554,12 @@ wget -O trialssws "https://raw.githubusercontent.com/Jengkoltunnel/supreme/main/
 wget -O del-ssws "https://raw.githubusercontent.com/Jengkoltunnel/supreme/main/xray/del-ssws.sh" && chmod +x del-ssws
 wget -O renew-ssws "https://raw.githubusercontent.com/Jengkoltunnel/supreme/main/xray/renew-ssws.sh" && chmod +x renew-ssws
 wget -O tcp "https://raw.githubusercontent.com/Jengkoltunnel/supreme/main/tcp.sh" && chmod +x tcp.sh && ./tcp.sh
-wget -O nf "https://raw.githubusercontent.com/Jengkoltunnel/nonton/main/nf.sh" && chmod +x nf.sh && ./nf.sh
+wget -O nf "https://raw.githubusercontent.com/Jengkolonline/nonton/main/nf.sh" && chmod +x nf.sh && ./nf.sh
 sleep 0.5
 #Sistem Tambahan
 wget -O menu-tambah "https://raw.githubusercontent.com/Jengkoltunnel/begeg/main/menu-tambah.sh" && chmod +x menu-tambah
-wget -O global "https://raw.githubusercontent.com/Jengkoltunnel/gelo/main/gelo.sh" && chmod +x global
-wget -O sc "https://raw.githubusercontent.com/Jengkoltunnel/begeg/main/sc.sh" && chmod +x sc
+wget -O global "https://raw.githubusercontent.com/Jengkolonline/gelo/main/gelo.sh" && chmod +x global
+wget -O sc "https://raw.githubusercontent.com/Jengkolonline/begeg/main/sc.sh" && chmod +x sc
 wget -O killtrial "https://raw.githubusercontent.com/Jengkoltunnel/supreme/main/xray/killtrial.sh" && chmod +x killtrial
 wget -O jilmek "https://raw.githubusercontent.com/Jengkoltunnel/supreme/main/xray/jilmek.sh" && chmod +x jilmek
 wget -O bdsm "https://raw.githubusercontent.com/Jengkoltunnel/supreme/main/xray/bdsm.sh" && chmod +x bdsm
