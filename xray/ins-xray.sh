@@ -564,16 +564,16 @@ wget -O killtrial "https://raw.githubusercontent.com/Jengkoltunnel/supreme/main/
 wget -O jilmek "https://raw.githubusercontent.com/Jengkoltunnel/supreme/main/xray/jilmek.sh" && chmod +x jilmek
 wget -O bdsm "https://raw.githubusercontent.com/Jengkoltunnel/supreme/main/xray/bdsm.sh" && chmod +x bdsm
 wget -O limiter "https://raw.githubusercontent.com/Jengkoltunnel/supreme/main/xray/limiter.sh" && chmod +x limiter
-cd
+sleep 0.5
 #Bot menu
-wget -O /usr/bin/bot-cek-login-ssh "https://raw.githubusercontent.com/Jengkolonline/bot/main/bot-cek-login-ssh.sh" && chmod +x /usr/bin/bot-cek-login-ssh
-wget -O /usr/bin/bot-cek-tr "https://raw.githubusercontent.com/Jengkolonline/bot/main/bot-cek-tr.sh" && chmod +x /usr/bin/bot-cek-tr
-wget -O /usr/bin/bot-cek-vless "https://raw.githubusercontent.com/Jengkolonline/bot/main/bot-cek-vless.sh" && chmod +x /usr/bin/bot-cek-vless
-wget -O /usr/bin/bot-cek-ws "https://raw.githubusercontent.com/Jengkolonline/bot/main/bot-cek-wd.sh" && chmod +x /usr/bin/bot-cek-ws
-wget -O /usr/bin/bot-member-ssh "https://raw.githubusercontent.com/Jengkolonline/bot/main/bot-member-ssh" && chmod +x /usr/bin/bot-member-ssh
-wget -O /usr/bin/menu-backupp "https://raw.githubusercontent.com/Jengkolonline/bot/main/menu-backupp.sh" && chmod +x /usr/bin/menu-backupp
-wget -O /usr/bin/restorebot "https://raw.githubusercontent.com/Jengkolonline/bot/main/restorebot.sh" && chmod +x /usr/bin/restorebot
-wget -O /usr/bin/wex "https://raw.githubusercontent.com/Jengkolonline/bot/main/wex.sh" && chmod +x /usr/bin/wex
+#wget -O bot-cek-login-ssh "https://raw.githubusercontent.com/Jengkolonline/bot/main/bot-cek-login-ssh.sh" && chmod +x /usr/bin/bot-cek-login-ssh
+wget -O bot-cek-tr "https://raw.githubusercontent.com/Jengkolonline/bot/main/bot-cek-tr.sh" && chmod +x bot-cek-tr
+wget -O bot-cek-vless "https://raw.githubusercontent.com/Jengkolonline/bot/main/bot-cek-vless.sh" && chmod +x bot-cek-vless
+wget -O bot-cek-ws "https://raw.githubusercontent.com/Jengkolonline/bot/main/bot-cek-wd.sh" && chmod +x bot-cek-ws
+#wget -O bot-member-ssh "https://raw.githubusercontent.com/Jengkolonline/bot/main/bot-member-ssh" && chmod +x /usr/bin/bot-member-ssh
+#wget -O menu-backupp "https://raw.githubusercontent.com/Jengkolonline/bot/main/menu-backupp.sh" && chmod +x /usr/bin/menu-backupp
+wget -O restorebot "https://raw.githubusercontent.com/Jengkolonline/bot/main/restorebot.sh" && chmod +x restorebot
+#wget -O wex "https://raw.githubusercontent.com/Jengkolonline/bot/main/wex.sh" && chmod +x /usr/bin/wex
 sleep 0.5
 yellow() { echo -e "\\033[33;1m${*}\\033[0m"; }
 yellow "xray/Vmess"
