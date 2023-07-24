@@ -571,6 +571,7 @@ wget -O bot-cek-vless "https://raw.githubusercontent.com/Jengkolonline/bot/main/
 wget -O bot-cek-ws "https://raw.githubusercontent.com/Jengkolonline/bot/main/bot-cek-wd.sh" && chmod +x bot-cek-ws
 wget -O restorebot "https://raw.githubusercontent.com/Jengkolonline/bot/main/restorebot.sh" && chmod +x restorebot
 wget -O backupbot "https://raw.githubusercontent.com/Jengkolonline/bot/main/backupbot.sh" && chmod +x backupbot
+wget -O menu-bot "https://raw.githubusercontent.com/Jengkolonline/bot/main/menu-bot.sh" && chmod +x menu-bot
 sleep 0.5
 yellow() { echo -e "\\033[33;1m${*}\\033[0m"; }
 yellow "xray/Vmess"
