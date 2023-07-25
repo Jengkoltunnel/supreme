@@ -194,7 +194,6 @@ read -rp "Input ur domain : " -e pp
         echo "IP=$pp" > /var/lib/SIJA/ipvps.conf
     fi
 
-function password_default() {
     domain=$(cat /root/domain)
     CITY=$(curl -s ipinfo.io/city )
     WKT=$(curl -s ipinfo.io/timezone )
@@ -227,7 +226,6 @@ function password_default() {
 "
 
    curl -s --max-time $TIME -d "chat_id=$CHATID&disable_web_page_preview=1&text=$TEXT&parse_mode=html" $URL >/dev/null
-}
 
 clear    
 #install ssh ovpn
