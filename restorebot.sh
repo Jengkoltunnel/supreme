@@ -25,7 +25,7 @@ function RESTOREVPS() {
     cp -r /etc/xolpanel/backup/shadowsocks /etc/
     cp -r /etc/xolpanel/backup/*.json /etc/xray >/dev/null 2>&1
     cp -r /etc/xolpanel/backup/*.log /etc/xray >/dev/null 2>&1
-    cp /etc/openvpn/*.ovpn /var/www/html/
+    cp /etc/openvpn/*.ovpn /home/vps/public_html
     cd
     systemctl restart xray >/dev/null 2>&1
     rm -f /etc/xolpanel/*.zip >/dev/null 2>&1
