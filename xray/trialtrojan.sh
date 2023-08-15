@@ -74,8 +74,8 @@ sed -i '/#trojangrpc$/a\#! '"$user $exp"'\
 
 systemctl restart xray
 trojanlink1="trojan://${uuid}@${domain}:443?mode=gun&security=tls&type=grpc&serviceName=trojan-grpc&sni=bug.com#${user}"
-trojanlink="trojan://${uuid}@isi_bug_disini:443?path=%2Ftrojan-ws&security=tls&host=${domain}&type=ws&sni=${domain}#${user}"
-trojanlink2="trojan://${uuid}@isi_bug_disini:80?path=%2Ftrojan-ws&security=tls&host=${domain}&type=ws#${user}"
+trojanlink="trojan://${uuid}@${domain}:443?path=%2Ftrojan-ws&security=tls&host=${domain}&type=ws&sni=${domain}#${user}"
+trojanlink2="trojan://${uuid}@${domain}:80?path=%2Ftrojan-ws&security=tls&host=${domain}&type=ws#${user}"
 
 cat > /home/vps/public_html/$user-TRTLS.yaml <<EOF
 port: 7890
