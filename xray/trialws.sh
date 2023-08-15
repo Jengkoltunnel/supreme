@@ -82,7 +82,7 @@ asu=`cat<<EOF
       "net": "ws",
       "path": "/vmess",
       "type": "none",
-      "host": "",
+      "host": "${domain}",
       "tls": "tls"
 }
 EOF`
@@ -97,7 +97,7 @@ ask=`cat<<EOF
       "net": "ws",
       "path": "/vmess",
       "type": "none",
-      "host": "",
+      "host": "${domain}",
       "tls": "none"
 }
 EOF`
@@ -112,7 +112,7 @@ grpc=`cat<<EOF
       "net": "grpc",
       "path": "vmess-grpc",
       "type": "none",
-      "host": "",
+      "host": "${domain}",
       "tls": "tls"
 }
 EOF`
@@ -156,7 +156,7 @@ dns:
     - 112.215.203.254
 proxies:
   - name: ${user}
-    server: ${sts}
+    server: ${domain}
     port: 443
     type: vmess
     uuid: ${uuid}
@@ -341,7 +341,7 @@ EOF
 cat > /home/vps/public_html/$user-VmessWsCDN.yaml << EOF
 - name: Vmess-$user
   type: vmess
-  server: ${sts}
+  server: ${domain}
   port: 443
   uuid: ${uuid}
   alterId: 0
@@ -360,7 +360,7 @@ EOF
 cat > /home/vps/public_html/$user-VmessNWsCDN.yaml << EOF
 - name: Vmess-$user
   type: vmess
-  server: ${sts}
+  server: ${domain}
   port: 80
   uuid: ${uuid}
   alterId: 0
@@ -432,7 +432,7 @@ dns:
     - 112.215.203.254
 proxies:
   - name: ${user}
-    server: ${sts}
+    server: ${domain}
     port: 443
     type: vmess
     uuid: ${uuid}
