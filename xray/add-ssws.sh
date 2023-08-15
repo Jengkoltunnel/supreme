@@ -98,9 +98,9 @@ echo $cipher:$uuid > /tmp/log
 shadowsocks_base64=$(cat /tmp/log)
 echo -n "${shadowsocks_base64}" | base64 > /tmp/log1
 shadowsocks_base64e=$(cat /tmp/log1)
-shadowsockslink="ss://${shadowsocks_base64e}@isi_bug_disini:$tls?path=ss-ws&security=tls&host=${domain}&type=ws&sni=${domain}#${user}"
-shadowsockslink1="ss://${shadowsocks_base64e}@isi_bug_disini:$ntls?path=ss-ws&security=none&host=${domain}&type=ws#${user}"
-shadowsockslink2="ss://${shadowsocks_base64e}@${domain}:$tls?mode=gun&security=tls&type=grpc&serviceName=ss-grpc&sni=bug.com#${user}"
+shadowsockslink="ss://${shadowsocks_base64e}@${domain}:443?path=ss-ws&security=tls&host=${domain}&type=ws&sni=${domain}#${user}"
+shadowsockslink1="ss://${shadowsocks_base64e}@${domain}:80?path=ss-ws&security=none&host=${domain}&type=ws#${user}"
+shadowsockslink2="ss://${shadowsocks_base64e}@${domain}:443?mode=gun&security=tls&type=grpc&serviceName=ss-grpc&sni=bug.com#${user}"
 systemctl restart xray
 rm -rf /tmp/log
 rm -rf /tmp/log1
@@ -579,9 +579,9 @@ echo -e "Host XrayDNS   : ${NS}" | tee -a /etc/log-create-user.log
 echo -e "Pub Key        : ${PUB}" | tee -a /etc/log-create-user.log
 echo -e "User Quota     : ${Quota} GB" | tee -a /etc/log-create-user.log
 echo -e "Wildcard       : (bug.com).${domain}" | tee -a /etc/log-create-user.log
-echo -e "Port TLS       : ${tls}" | tee -a /etc/log-create-user.log
-echo -e "Port none TLS  : ${ntls}" | tee -a /etc/log-create-user.log
-echo -e "Port gRPC      : ${tls}" | tee -a /etc/log-create-user.log
+echo -e "Port TLS       : 443" | tee -a /etc/log-create-user.log
+echo -e "Port none TLS  : 80" | tee -a /etc/log-create-user.log
+echo -e "Port gRPC      : 443" | tee -a /etc/log-create-user.log
 echo -e "Password       : ${uuid}" | tee -a /etc/log-create-user.log
 echo -e "Ciphers        : ${cipher}" | tee -a /etc/log-create-user.log
 echo -e "Network        : ws/grpc" | tee -a /etc/log-create-user.log
