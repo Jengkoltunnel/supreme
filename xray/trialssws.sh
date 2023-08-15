@@ -75,8 +75,8 @@ echo $cipher:$uuid > /tmp/log
 shadowsocks_base64=$(cat /tmp/log)
 echo -n "${shadowsocks_base64}" | base64 > /tmp/log1
 shadowsocks_base64e=$(cat /tmp/log1)
-shadowsockslink="ss://${shadowsocks_base64e}@isi_bug_disini:443?path=ss-ws&security=tls&host=${domain}&type=ws&sni=${domain}#${user}"
-shadowsockslink2="ss://${shadowsocks_base64e}@isi_bug_disini:80?path=ss-ws&security=tls&host=${domain}&type=ws#${user}"
+shadowsockslink="ss://${shadowsocks_base64e}@${domain}:443?path=ss-ws&security=tls&host=${domain}&type=ws&sni=${domain}#${user}"
+shadowsockslink2="ss://${shadowsocks_base64e}@${domain}:80?path=ss-ws&security=tls&host=${domain}&type=ws#${user}"
 shadowsockslink1="ss://${shadowsocks_base64e}@${domain}:443?mode=gun&security=tls&type=grpc&serviceName=ss-grpc&sni=bug.com#${user}"
 
 cat > /var/www/html/sodosokws-$user.txt <<-END
