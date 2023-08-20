@@ -105,8 +105,8 @@ sed -i '/#trojangrpc$/a\#! '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
 #trojanlink1="trojan://${uuid}@${domain}:${tls}?mode=gun&security=tls&type=grpc&serviceName=trojan-grpc&sni=bug.com#${user}"
 #trojanlink2="trojan://${uuid}@$domain:80?path=/trojan&security=none&host=$domain&type=ws#$user"
-trojanlink1="trojan://${uuid}@isi_bug_disini:${tls}?path=%2Ftrojan-ws&security=tls&host=${domain}&type=ws&sni=${domain}#${user}"
-trojanlink2="trojan://${uuid}@$domain:${ntls}?path=%2Ftrojan-ws&security=none&host=$domain&type=ws#$user"
+trojanlink1="trojan://${uuid}@isi_bug_disini:${tls}?path=/yaddyganteng&security=tls&host=${domain}&type=ws&sni=${domain}#${user}"
+trojanlink2="trojan://${uuid}@$domain:${ntls}?path=/yaddyganteng&security=none&host=$domain&type=ws#$user"
 trojanlink3="trojan://${uuid}@${domain}:${tls}?mode=gun&security=tls&type=grpc&serviceName=trojan-grpc&sni=bug.com#${user}"
 clear
 #trojanlink2="trojan://${uuid}@$domain:80?path=/trojan&security=none&host=$domain&type=ws#$user"
@@ -257,7 +257,7 @@ echo -e "CDN TLS        : 443" | tee -a /etc/log-create-user.log
 echo -e "CDN No TLS     : 80" | tee -a /etc/log-create-user.log
 echo -e "CDN Grpc       : 443" | tee -a /etc/log-create-user.log
 echo -e "Key            : ${uuid}" | tee -a /etc/log-create-user.log
-echo -e "Path           : /trojan-ws" | tee -a /etc/log-create-user.log
+echo -e "Path           : /yaddyganteng" | tee -a /etc/log-create-user.log
 echo -e "ServiceName    : trojan-grpc" | tee -a /etc/log-create-user.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
 echo -e "Link TLS       : ${trojanlink1}" | tee -a /etc/log-create-user.log
