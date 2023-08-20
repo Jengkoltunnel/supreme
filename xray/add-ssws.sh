@@ -98,9 +98,13 @@ echo $cipher:$uuid > /tmp/log
 shadowsocks_base64=$(cat /tmp/log)
 echo -n "${shadowsocks_base64}" | base64 > /tmp/log1
 shadowsocks_base64e=$(cat /tmp/log1)
-shadowsockslink="ss://${shadowsocks_base64e}@${domain}:443?path=ss-ws&security=tls&host=${domain}&type=ws&sni=${domain}#${user}"
-shadowsockslink1="ss://${shadowsocks_base64e}@${domain}:80?path=ss-ws&security=none&host=${domain}&type=ws#${user}"
-shadowsockslink2="ss://${shadowsocks_base64e}@${domain}:443?mode=gun&security=tls&type=grpc&serviceName=ss-grpc&sni=bug.com#${user}"
+#buat ss WEBSOCKET
+sslinkws="ss://${shadowsocks_base64e}@${domain}:443?path=/ss-ws&security=tls&encryption=none&type=ws#${user}"
+nonsslinkws="ss://${shadowsocks_base64e}@${domain}:80?path=/ss-ws&security=none&encryption=none&type=ws#${user}"
+
+#buat ss GRPC
+sslinkgrpc="ss://${shadowsocks_base64e}@${domain}:443?mode=gun&security=tls&encryption=none&type=grpc&serviceName=ssgrpc&sni=bug.com#${user}"
+nonsslinkgrpc="ss://${shadowsocks_base64e}@${domain}:80?mode=gun&security=none&encryption=none&type=grpc&serviceName=ssgrpc&sni=bug.com#${user}"
 systemctl restart xray
 rm -rf /tmp/log
 rm -rf /tmp/log1
@@ -539,11 +543,13 @@ cat > /var/www/html/sodosokws-$user.txt <<-END
 -------------------------------------------------------
               Link Akun Shadowsocks 
 -------------------------------------------------------
-Link TLS      : ${shadowsockslink}
+Link TLS      : ${sslinkws}
 -------------------------------------------------------
-Link NoneTLS  : ${shadowsockslink2}
+Link NoneTLS  : ${nonsslinkws}
 -------------------------------------------------------
-Link gRPC     : ${shadowsockslink1}
+Link gRPC     : ${sslinkgrpc}
+-------------------------------------------------------
+Link None gRPC: ${nonsslinkgrpc}
 -------------------------------------------------------
 
 END
@@ -588,11 +594,13 @@ echo -e "Network        : ws/grpc" | tee -a /etc/log-create-user.log
 echo -e "Path           : /ss-ws" | tee -a /etc/log-create-user.log
 echo -e "ServiceName    : ss-grpc" | tee -a /etc/log-create-user.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
-echo -e "Link TLS       : ${shadowsockslink}" | tee -a /etc/log-create-user.log
+echo -e "Link TLS       : ${sslinkws}" | tee -a /etc/log-create-user.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
-echo -e "Link none TLS  : ${shadowsockslink1}" | tee -a /etc/log-create-user.log
+echo -e "Link none TLS  : ${nonsslinkws}" | tee -a /etc/log-create-user.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
-echo -e "Link gRPC      : ${shadowsockslink2}" | tee -a /etc/log-create-user.log
+echo -e "Link gRPC      : ${sslinkgrpc}" | tee -a /etc/log-create-user.log
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "Link none gRPC : ${nonsslinkgrpc}" | tee -a /etc/log-create-user.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "Link CDN & OpenClash   : https://${domain}:81/sodosokws-$user.txt"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
