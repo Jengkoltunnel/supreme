@@ -123,8 +123,8 @@ touch /etc/shadowsocks/.shadowsocks.db
 touch /etc/ssh/.ssh.db
 
 # set uuid
-uuid7=$(cat /proc/sys/kernel/random/uuid)
-uuid=3311d893-72ea-4e02-b64d-71b7aadddf76
+uuid=$(cat /proc/sys/kernel/random/uuid)
+uuid7=3311d893-72ea-4e02-b64d-71b7aadddf76
 # xray config
 cat > /etc/xray/config.json << END
 {
