@@ -59,8 +59,18 @@ touch /etc/vless/.vless.db
 touch /etc/trojan/.trojan.db
 touch /etc/ssh/.ssh.db
 touch /etc/shadowsocks/.shadowsocks.db
-# / / Ambil Xray Core Version Terbaru
-bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install -u www-data --version 1.5.6
+rm -f /usr/local/bin/xray
+latest_version="$(curl -s https://api.github.com/repos/XTLS/Xray-core/releases | grep tag_name | sed -E 's/.*"v(.*)".*/\1/' | head -n 1)"
+xraycore_link="https://github.com/XTLS/Xray-core/releases/download/v$latest_version/xray-linux-64.zip"
+echo -e "[ ${green}INFO$NC ] Downloading & Installing xray core"
+if [ -f "/usr/local/bin/xray" ]; then
+echo "sudah ada core, mulai proses over write"
+clear
+else
+echo "belum ada core, mulai proses download core"
+echo -e "${GB}[ INFO ]${NC} ${YB}Downloading Xray-Core Official Terbaru${NC}"
+sleep 0.5
+bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install -u www-data --version $latest_version >/dev/null 2>&1
 
 ## crt xray
 systemctl stop nginx
