@@ -105,11 +105,11 @@ sed -i '/#trojangrpc$/a\#! '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
 #buattrojan 443
 trojanlink3="trojan://${uuid}@${domain}:443?mode=gun&security=tls&type=grpc&serviceName=trojan-grpc&sni=bug.com#${user}"
-trojanlink1="trojan://${uuid}@${domain}:443?path=/trojan-ws&security=tls&host=bug.com&type=ws&sni=bug.com#${user}"
+trojanlink1="trojan://${uuid}@${domain}:443?path=/trojan&security=tls&host=bug.com&type=ws&sni=bug.com#${user}"
 
 #buattrojan 80
 trojanlink4="trojan://${uuid}@${domain}:80?mode=gun&security=none&type=grpc&serviceName=trojan-grpc&sni=bug.com#${user}"
-trojanlink2="trojan://${uuid}@${domain}:80?path=/trojan-ws&security=none&host=bug.com&type=ws&sni=bug.com#${user}"
+trojanlink2="trojan://${uuid}@${domain}:80?path=/trojan&security=none&host=bug.com&type=ws&sni=bug.com#${user}"
 
 cat > /home/vps/public_html/$user-TRTLS.yaml <<EOF
 port: 7890
@@ -256,7 +256,7 @@ echo -e "CDN TLS        : 443" | tee -a /etc/log-create-user.log
 echo -e "CDN No TLS     : 80" | tee -a /etc/log-create-user.log
 echo -e "CDN Grpc       : 443" | tee -a /etc/log-create-user.log
 echo -e "Key            : ${uuid}" | tee -a /etc/log-create-user.log
-echo -e "Path           : /yaddyganteng" | tee -a /etc/log-create-user.log
+echo -e "Path           : /trojan" | tee -a /etc/log-create-user.log
 echo -e "ServiceName    : trojan-grpc" | tee -a /etc/log-create-user.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
 echo -e "Link TLS       : ${trojanlink1}" | tee -a /etc/log-create-user.log
