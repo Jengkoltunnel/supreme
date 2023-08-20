@@ -75,7 +75,7 @@ touch /etc/shadowsocks/.shadowsocks.db
 #chmod +x /usr/local/bin/xray
 
 # / / Ambil Xray Core Version Terbaru
-bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install -u www-data --version 1.6.6
+bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install -u www-data --version 1.5.6
 
 ## crt xray
 systemctl stop nginx
