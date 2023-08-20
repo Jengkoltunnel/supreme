@@ -73,10 +73,9 @@ sed -i '/#trojangrpc$/a\#! '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
 
 systemctl restart xray
-trojanlink1="trojan://${uuid}@isi_bug_disini:${tls}?path=/yaddyganteng&security=tls&host=${domain}&type=ws&sni=${domain}#${user}"
-trojanlink2="trojan://${uuid}@$domain:${ntls}?path=/yaddyganteng&security=none&host=$domain&type=ws#$user"
 trojanlink3="trojan://${uuid}@${domain}:${tls}?mode=gun&security=tls&type=grpc&serviceName=trojan-grpc&sni=bug.com#${user}"
-
+trojanlink1="trojan://${uuid}@isi_bug_disini:${tls}?path=%2Ftrojan-ws&security=tls&host=${domain}&type=ws&sni=${domain}#${user}"
+trojanlink2="trojan://${uuid}@isi_bug_disini:${ntls}?path=%2Ftrojan-ws&security=none&host=${domain}&type=ws#${user}"
 cat > /home/vps/public_html/$user-TRTLS.yaml <<EOF
 port: 7890
 socks-port: 7891
