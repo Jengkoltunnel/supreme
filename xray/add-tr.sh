@@ -103,7 +103,8 @@ sed -i '/#trojanws$/a\#! '"$user $exp"'\
 },{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/trojanws.json
 sed -i '/#trojannows$/a\#! '"$user $exp"'\
 },{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/trnone.json
-
+sed -i '/#trojangrpc$/a\#! '"$user $exp"'\
+},{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/trojangrpc.json
 #Restart service
 systemctl restart xray@trojanws.service
 systemctl restart xray@trnone.service
