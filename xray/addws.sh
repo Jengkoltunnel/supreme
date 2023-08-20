@@ -150,9 +150,26 @@ grpc=`cat<<EOF
       "tls": "tls"
 }
 EOF`
+grpcn=`cat<<EOF
+      {
+      "v": "2",
+      "ps": "${user}",
+      "add": "${domain}",
+      "port": "80",
+      "id": "${uuid}",
+      "aid": "0",
+      "net": "grpc",
+      "path": "vmess-grpc",
+      "type": "none",
+      "host": "${domain}",
+      "tls": "none"
+}
+EOF`
 vmess_base641=$( base64 -w 0 <<< $vmess_json1)
 vmess_base642=$( base64 -w 0 <<< $vmess_json2)
 vmess_base643=$( base64 -w 0 <<< $vmess_json3)
+vmess_base644=$( base64 -w 0 <<< $vmess_json4)
+
 
 cat > /home/vps/public_html/$user-VMESSTLS.yaml <<EOF
 port: 7890
@@ -717,6 +734,7 @@ END
 vmesslink1="vmess://$(echo $asu | base64 -w 0)"
 vmesslink2="vmess://$(echo $ask | base64 -w 0)"
 vmesslink3="vmess://$(echo $grpc | base64 -w 0)"
+vmesslink4="vmess://$(echo $grpcn | base64 -w 0)"
 TEXT="
 <code>───────────────────────────</code>
 <code>    SUCCES CREAT AKUN VMESS</code>
@@ -731,6 +749,7 @@ TEXT="
 <code>Port DNS     : 443, 53</code>
 <code>Port NTLS    : 80</code>
 <code>Port GRPC    : 443</code>
+<code>Port NGRPC   : 80</code>
 <code>User ID      : ${uuid}</code>
 <code>AlterId      : 0</code>
 <code>Security     : auto</code>
@@ -746,6 +765,9 @@ TEXT="
 <code>───────────────────────────</code>
 <code>Link GRPC    :</code> 
 <code>${vmesslink3}</code>
+<code>───────────────────────────</code>
+<code>Link NGRPC    :</code> 
+<code>${vmesslink4}</code>
 <code>───────────────────────────</code>
 <code>YAML Clash Ws :</code> http://${IP}:81/$user-VMESSTLS.yaml
 <code>───────────────────────────</code>
@@ -793,6 +815,7 @@ echo -e "Wildcard       : (bug.com).${domain}" | tee -a /etc/log-create-user.log
 echo -e "Port TLS       : ${tls}" | tee -a /etc/log-create-user.log
 echo -e "Port none TLS  : 80" | tee -a /etc/log-create-user.log
 echo -e "Port gRPC      : ${tls}" | tee -a /etc/log-create-user.log
+echo -e "Port none gRPC : 80" | tee -a /etc/log-create-user.log
 echo -e "OpenClash Ws   : 443" | tee -a /etc/log-create-user.log
 echo -e "OpenClash No Ws: 80" | tee -a /etc/log-create-user.log
 echo -e "CDN TLS        : 443" | tee -a /etc/log-create-user.log
@@ -810,6 +833,8 @@ echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━�
 echo -e "Link none TLS  : ${vmesslink2}" | tee -a /etc/log-create-user.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
 echo -e "Link gRPC      : ${vmesslink3}" | tee -a /etc/log-create-user.log
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
+echo -e "Link none gRPC : ${vmesslink4}" | tee -a /etc/log-create-user.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
 echo -e "YAML Clash Ws  : http://${IP}:81/$user-VMESSTLS.yaml"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
