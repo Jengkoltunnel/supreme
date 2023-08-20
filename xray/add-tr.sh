@@ -111,6 +111,7 @@ service cron restart
 #buattrojan 443
 trojanlink1="trojan://${uuid}@${sts}${domain}:443?type=ws&security=tls&host=${domain}&path=/trojan-tls&sni=${sni}#XRAY_TROJAN_TLS_${user}"
 trojanlink2="trojan://${uuid}@${sts}${domain}:80?type=ws&security=none&host=${domain}&path=/trojan-ntls#XRAY_TROJAN_NTLS_${user}"
+#trojanlink2="trojan://${uuid}@{sts}:80?path=/trojan-ntls&security=none&host=${domain}&type=ws#${user}"
 #buattrojan 443
 trojanlink3="trojan://${uuid}@${domain}:443?mode=gun&security=tls&type=grpc&serviceName=trojan-grpc&sni=bug.com#${user}"
 #trojanlink1="trojan://${uuid}@${domain}:443?path=/trojan&security=tls&host=bug.com&type=ws&sni=bug.com#${user}"
