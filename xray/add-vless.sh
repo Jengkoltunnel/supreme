@@ -103,9 +103,12 @@ sed -i '/#vless$/a\#& '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
 sed -i '/#vlessgrpc$/a\#& '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
-vlesslink1="vless://${uuid}@${domain}:443?path=/vless&security=tls&encryption=none&type=ws#${user}"
-vlesslink2="vless://${uuid}@${domain}:80?path=/vless&encryption=none&type=ws#${user}"
+#buatvless WEBSOCKET
+vlesslink1="vless://${uuid}@${domain}:443?path=/xrayws&security=tls&encryption=none&type=ws#${user}"
+vlesslink2="vless://${uuid}@${domain}:80?path=/xrayws&security=none&encryption=none&type=ws#${user}"
+#buatvless GRPC
 vlesslink3="vless://${uuid}@${domain}:443?mode=gun&security=tls&encryption=none&type=grpc&serviceName=vless-grpc&sni=bug.com#${user}"
+vlesslink4="vless://${uuid}@${domain}:80?mode=gun&security=none&encryption=none&type=grpc&serviceName=vless-grpc&sni=bug.com#${user}"
 
 cat > /home/vps/public_html/$user-VMESSTLS.yaml <<EOF
 port: 7890
@@ -696,6 +699,7 @@ echo -e "Wildcard       : (bug.com).${domain}" | tee -a /etc/log-create-user.log
 echo -e "Port TLS       : $tls" | tee -a /etc/log-create-user.log
 echo -e "Port none TLS  : 80" | tee -a /etc/log-create-user.log
 echo -e "Port Grpc      : $tls" | tee -a /etc/log-create-user.log
+echo -e "Port none Grpc  : 80" | tee -a /etc/log-create-user.log
 echo -e "OpenClash Ws   : 443" | tee -a /etc/log-create-user.log
 echo -e "OpenClash No Ws: 80" | tee -a /etc/log-create-user.log
 echo -e "CDN TLS        : 443" | tee -a /etc/log-create-user.log
@@ -712,6 +716,8 @@ echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━�
 echo -e "Link none TLS  : ${vlesslink2}" | tee -a /etc/log-create-user.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
 echo -e "Link gRPC      : ${vlesslink3}" | tee -a /etc/log-create-user.log
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
+echo -e "Link none gRPC : ${vlesslink4}" | tee -a /etc/log-create-user.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
 echo -e "Yaml Clash Ws  : http://${IP}:81/$user-VlessTLS.yaml"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
