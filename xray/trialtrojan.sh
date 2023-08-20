@@ -73,8 +73,8 @@ sed -i '/#trojangrpc$/a\#! '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
 
 systemctl restart xray
-trojanlink1="trojan://${uuid}@isi_bug_disini:${tls}?path=%2Ftrojan-ws&security=tls&host=${domain}&type=ws&sni=${domain}#${user}"
-trojanlink2="trojan://${uuid}@$domain:${ntls}?path=%2Ftrojan-ws&security=none&host=$domain&type=ws#$user"
+trojanlink1="trojan://${uuid}@isi_bug_disini:${tls}?path=/yaddyganteng&security=tls&host=${domain}&type=ws&sni=${domain}#${user}"
+trojanlink2="trojan://${uuid}@$domain:${ntls}?path=/yaddyganteng&security=none&host=$domain&type=ws#$user"
 trojanlink3="trojan://${uuid}@${domain}:${tls}?mode=gun&security=tls&type=grpc&serviceName=trojan-grpc&sni=bug.com#${user}"
 
 cat > /home/vps/public_html/$user-TRTLS.yaml <<EOF
@@ -340,7 +340,7 @@ echo -e "CDN TLS        : 443"
 echo -e "CDN No TLS     : 80"
 echo -e "CDN Grpc       : 443"
 echo -e "Key            : ${uuid}"
-echo -e "Path           : /trojan-ws"
+echo -e "Path           : /yaddyganteng"
 echo -e "ServiceName    : trojan-grpc"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "Link TLS       : ${trojanlink1}"
