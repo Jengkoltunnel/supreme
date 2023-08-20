@@ -100,9 +100,9 @@ thn2=$(date +"%Y")
 tnggl="$tgl2 $bln2, $thn2"
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#trojanws$/a\#! '"$user $exp"'\
-},{"password": "'""$uuid""'","email": "'""$user""'"' /usr/local/etc/xray/trojanws.json
-sed -i '/#trojangrpc$/a\### '"$user $exp"'\
-},{"password": "'""$uuid""'","email": "'""$user""'"' /usr/local/etc/xray/trnone.json
+},{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/trojanws.json
+sed -i '/#trojannows$/a\#! '"$user $exp"'\
+},{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/trnone.json
 
 #Restart service
 systemctl restart xray@trojanws.service
@@ -111,13 +111,14 @@ service cron restart
 #buattrojan 443
 trojanlink1="trojan://${uuid}@${sts}${domain}:443?type=ws&security=tls&host=${domain}&path=/trojan-tls&sni=${sni}#XRAY_TROJAN_TLS_${user}"
 trojanlink2="trojan://${uuid}@${sts}${domain}:80?type=ws&security=none&host=${domain}&path=/trojan-ntls#XRAY_TROJAN_NTLS_${user}"
+trojanlink3="trojan://${uuid}@${sts}${domain}:443?allowInsecure=1&security=tls&host=${domain}&type=grpc&serviceName=trojan-grpc&sni=${sni}#XRAY_TROJAN_GRPC_${user}"
 #trojanlink2="trojan://${uuid}@{sts}:80?path=/trojan-ntls&security=none&host=${domain}&type=ws#${user}"
 #buattrojan 443
-trojanlink3="trojan://${uuid}@${domain}:443?mode=gun&security=tls&type=grpc&serviceName=trojan-grpc&sni=bug.com#${user}"
+#trojanlink3="trojan://${uuid}@${domain}:443?mode=gun&security=tls&type=grpc&serviceName=trojan-grpc&sni=bug.com#${user}"
 #trojanlink1="trojan://${uuid}@${domain}:443?path=/trojan&security=tls&host=bug.com&type=ws&sni=bug.com#${user}"
 
 #buattrojan 80
-trojanlink4="trojan://${uuid}@${domain}:80?mode=gun&security=none&type=grpc&serviceName=trojan-grpc&sni=bug.com#${user}"
+#trojanlink4="trojan://${uuid}@${domain}:80?mode=gun&security=none&type=grpc&serviceName=trojan-grpc&sni=bug.com#${user}"
 #trojanlink2="trojan://${uuid}@${domain}:80?path=/trojan&security=none&host=bug.com&type=ws&sni=bug.com#${user}"
 
 cat > /home/vps/public_html/$user-TRTLS.yaml <<EOF
