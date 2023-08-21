@@ -42,7 +42,7 @@ domain=$IP
 fi
 PUB=$( cat /etc/slowdns/server.pub )
 NS=`cat /etc/xray/dns`
-
+CITY=$(curl -s ipinfo.io/city )
 tls="$(cat ~/log-install.txt | grep -w "Vmess TLS" | cut -d: -f2|sed 's/ //g')"
 none="$(cat ~/log-install.txt | grep -w "Vmess none TLS" | cut -d: -f2|sed 's/ //g')"
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
@@ -728,6 +728,8 @@ Link none TLS    : ${vmesslink2}
 -------------------------------------------------------
 Link GRPC        : ${vmesslink3}
 -------------------------------------------------------
+Link none GRPC   : ${vmesslink4}
+-------------------------------------------------------
 
 END
 
@@ -809,9 +811,10 @@ echo -e "Remarks        : ${user}" | tee -a /etc/log-create-user.log
 echo -e "Domain         : ${domain}" | tee -a /etc/log-create-user.log
 echo -e "Host XrayDNS   : ${NS}" | tee -a /etc/log-create-user.log
 echo -e "Pub Key        : ${PUB}" | tee -a /etc/log-create-user.log
+echo -e "City           : ${CITY}" | tee -a /etc/log-create-user.log
 echo -e "User Quota     : ${Quota} GB" | tee -a /etc/log-create-user.log
 echo -e "Limit IP       : ${iplim} IP" | tee -a /etc/log-create-user.log
-echo -e "Wildcard       : (bug.com).${domain}" | tee -a /etc/log-create-user.log
+echo -e "Wildcard       : ${sts}.${domain}" | tee -a /etc/log-create-user.log
 echo -e "Port TLS       : ${tls}" | tee -a /etc/log-create-user.log
 echo -e "Port none TLS  : 80" | tee -a /etc/log-create-user.log
 echo -e "Port gRPC      : ${tls}" | tee -a /etc/log-create-user.log
@@ -825,6 +828,8 @@ echo -e "id             : ${uuid}" | tee -a /etc/log-create-user.log
 echo -e "alterId        : 0" | tee -a /etc/log-create-user.log
 echo -e "Security       : auto" | tee -a /etc/log-create-user.log
 echo -e "Network        : ws" | tee -a /etc/log-create-user.log
+echo -e "HTTPS          : 2053, 2083, 2087, 2096, 8443" | tee -a /etc/log-create-user.log
+echo -e "HTTP           : 8080, 8880, 2052, 2082, 2086, 2095" | tee -a /etc/log-create-user.log
 echo -e "Path           : /vmess" | tee -a /etc/log-create-user.log
 echo -e "ServiceName    : vmess-grpc" | tee -a /etc/log-create-user.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
