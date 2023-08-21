@@ -88,8 +88,8 @@ uuid=$(cat /proc/sys/kernel/random/uuid)
 read -p "Limit User (GB): " Quota
 read -p "Limit User (IP): " iplim
 read -p "Expired (days): " masaaktif
-#mkdir -p /etc/vmess/limit-ip
-#echo ${iplim} >> /etc/trojan/limit-ip/${user}
+mkdir -p /etc/trojan/limit-ip
+echo ${iplim} >> /etc/trojan/limit-ip/${user}
 tgl=$(date -d "$masaaktif days" +"%d")
 bln=$(date -d "$masaaktif days" +"%b")
 thn=$(date -d "$masaaktif days" +"%Y")
