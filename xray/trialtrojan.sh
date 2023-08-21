@@ -67,15 +67,21 @@ tgl2=$(date +"%d")
 bln2=$(date +"%b")
 thn2=$(date +"%Y")
 tnggl="$tgl2 $bln2, $thn2"
-sed -i '/#trojanws$/a\#! '"$user $exp"'\
-},{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
+sed -i '/#tr$/a\#! '"$user $exp"'\
+},{"password": "'""$uuid""'","email": "'""$user""'"' /usr/local/etc/xray/trojanws.json
+sed -i '/#trnone$/a\#! '"$user $exp"'\
+},{"password": "'""$uuid""'","email": "'""$user""'"' /usr/local/etc/xray/trnone.json
 sed -i '/#trojangrpc$/a\#! '"$user $exp"'\
-},{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
+},{"password": "'""$uuid""'","email": "'""$user""'"' /usr/local/etc/xray/trojangrpc.json
+#Restart service
+systemctl restart xray@trojanws.service
+systemctl restart xray@trnone.service
+systemctl restart xray@trojangrpc.service
+service cron restart
 
-systemctl restart xray
-trojanlink3="trojan://${uuid}@${domain}:${tls}?mode=gun&security=tls&type=grpc&serviceName=trojan-grpc&sni=bug.com#${user}"
-trojanlink1="trojan://${uuid}@isi_bug_disini:${tls}?path=%2Ftrojan-ws&security=tls&host=${domain}&type=ws&sni=${domain}#${user}"
-trojanlink2="trojan://${uuid}@isi_bug_disini:${ntls}?path=%2Ftrojan-ws&security=none&host=${domain}&type=ws#${user}"
+trojanlink1="trojan://${uuid}@${sts}${domain}:443?type=ws&security=tls&host=${domain}&path=/trojan-tls&sni=${sni}#XRAY_TROJAN_TLS_${user}"
+trojanlink2="trojan://${uuid}@${sts}${domain}:80?type=ws&security=none&host=${domain}&path=/trojan-ntls#XRAY_TROJAN_NTLS_${user}"
+trojanlink3="trojan://${uuid}@${sts}${domain}:${tls}?allowInsecure=1&security=tls&host=${domain}&type=grpc&serviceName=trojan-grpc&sni=${sni}#XRAY_TROJAN_GRPC_${user}"
 cat > /home/vps/public_html/$user-TRTLS.yaml <<EOF
 port: 7890
 socks-port: 7891
@@ -291,11 +297,11 @@ rules:
 -------------------------------------------------------
                Link Akun Trojan
 -------------------------------------------------------
-Link TLS         : ${trojanlink}
+Link TLS         : ${trojanlink1}
 -------------------------------------------------------
 Link none TLS    : ${trojanlink2}
 -------------------------------------------------------
-Link GRPC        : ${trojanlink1}
+Link GRPC        : ${trojanlink3}
 -------------------------------------------------------
 END
 
@@ -339,7 +345,8 @@ echo -e "CDN TLS        : 443"
 echo -e "CDN No TLS     : 80"
 echo -e "CDN Grpc       : 443"
 echo -e "Key            : ${uuid}"
-echo -e "Path           : /yaddyganteng"
+echo -e "Path Tls       : /trojan-tls"
+echo -e "Path NTls      : /trojan-ntls"
 echo -e "ServiceName    : trojan-grpc"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "Link TLS       : ${trojanlink1}"
