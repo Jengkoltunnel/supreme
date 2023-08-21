@@ -67,21 +67,19 @@ tgl2=$(date +"%d")
 bln2=$(date +"%b")
 thn2=$(date +"%Y")
 tnggl="$tgl2 $bln2, $thn2"
-sed -i '/#tr$/a\#! '"$user $exp"'\
-},{"password": "'""$uuid""'","email": "'""$user""'"' /usr/local/etc/xray/trojanws.json
-sed -i '/#trnone$/a\#! '"$user $exp"'\
-},{"password": "'""$uuid""'","email": "'""$user""'"' /usr/local/etc/xray/trnone.json
-sed -i '/#trojangrpc$/a\#! '"$user $exp"'\
-},{"password": "'""$uuid""'","email": "'""$user""'"' /usr/local/etc/xray/trojangrpc.json
-#Restart service
-systemctl restart xray@trojanws.service
-systemctl restart xray@trnone.service
-systemctl restart xray@trojangrpc.service
-service cron restart
+sed -i '/#trojan$/a\#! '"$user $exp"'\
+},{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
+sed -i '/#trojan-grpc$/a\#! '"$user $exp"'\
+},{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
 
-trojanlink1="trojan://${uuid}@${sts}${domain}:443?type=ws&security=tls&host=${domain}&path=/trojan-tls&sni=${sni}#XRAY_TROJAN_TLS_${user}"
-trojanlink2="trojan://${uuid}@${sts}${domain}:80?type=ws&security=none&host=${domain}&path=/trojan-ntls#XRAY_TROJAN_NTLS_${user}"
-trojanlink3="trojan://${uuid}@${sts}${domain}:${tls}?allowInsecure=1&security=tls&host=${domain}&type=grpc&serviceName=trojan-grpc&sni=${sni}#XRAY_TROJAN_GRPC_${user}"
+#trojanlink1="trojan://${uuid}@${sts}${domain}:443?type=ws&security=tls&host=${domain}&path=/trojan-tls&sni=${sni}#XRAY_TROJAN_TLS_${user}"
+#trojanlink2="trojan://${uuid}@${sts}${domain}:80?type=ws&security=none&host=${domain}&path=/trojan-ntls#XRAY_TROJAN_NTLS_${user}"
+#trojanlink3="trojan://${uuid}@${sts}${domain}:${tls}?allowInsecure=1&security=tls&host=${domain}&type=grpc&serviceName=trojan-grpc&sni=${sni}#XRAY_TROJAN_GRPC_${user}"
+#Test
+trojanlink1="trojan://$uuid@$domain:443?path=/trojan&security=tls&host=$domain&type=ws&sni=$domain#$user"
+trojanlink2="trojan://${uuid}@$domain:80?path=/trojan&security=none&host=$domain&type=ws#$user"
+trojanlink3="trojan://${uuid}@$domain:443?security=tls&encryption=none&type=grpc&serviceName=trojan-grpc&sni=$domain#$user"
+
 cat > /home/vps/public_html/$user-TRTLS.yaml <<EOF
 port: 7890
 socks-port: 7891
