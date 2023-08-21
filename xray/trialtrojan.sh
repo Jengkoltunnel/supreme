@@ -52,6 +52,7 @@ clear
 domain=$(cat /etc/xray/domain)
 PUB=$( cat /etc/slowdns/server.pub )
 NS=`cat /etc/xray/dns`
+CITY=$(curl -s ipinfo.io/city )
 tls="$(cat ~/log-install.txt | grep -w "Trojan WS TLS" | cut -d: -f2|sed 's/ //g')"
 ntls="$(cat ~/log-install.txt | grep -w "Trojan WS none TLS" | cut -d: -f2|sed 's/ //g')"
 user=trial`</dev/urandom tr -dc X-Z0-9 | head -c4`
@@ -338,6 +339,7 @@ echo -e "Host XrayDNS   : ${NS}"
 echo -e "Pub Key        : ${PUB}" 
 echo -e "User Quota     : ${Quota} GB"
 echo -e "Limit Ip       : 2 IP"
+echo -e "City           : ${CITY}" 
 echo -e "Wildcard       : (bug.com).${domain}"
 echo -e "Port TLS       : ${tls}, 2053, 2083, 2087, 2096, 8443"
 echo -e "Port none TLS  : 80, 8080, 8880, 2052, 2082, 2086, 2095"
