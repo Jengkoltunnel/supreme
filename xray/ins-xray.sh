@@ -703,6 +703,18 @@ wget -O cek-ss2022 "https://raw.githubusercontent.com/Jengkoltunnel/supreme/main
 wget -O del-ss2022 "https://raw.githubusercontent.com/Jengkoltunnel/supreme/main/xray/del-ss2022.sh"
 wget -O extend-ss2022 "https://raw.githubusercontent.com/Jengkoltunnel/supreme/main/xray/extend-ss2022.sh"
 wget -O trialss2022 "https://raw.githubusercontent.com/Jengkoltunnel/supreme/main/xray/trialss2022.sh"
+chmod +x add-ss2022
+chmod +x del-ss2022
+chmod +x extend-ss2022
+chmod +x trialss2022
+chmod +x cek-ss2022
+chmod +x add-socks
+chmod +x del-socks
+chmod +x extend-socks
+chmod +x trialsocks
+chmod +x cek-socks
+chmod +x shadowsocks2022
+chmod +x socks
 sleep 0.5
 yellow() { echo -e "\\033[33;1m${*}\\033[0m"; }
 yellow "xray/Vmess"
