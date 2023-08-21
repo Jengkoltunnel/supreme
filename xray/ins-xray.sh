@@ -104,6 +104,10 @@ mkdir -p /etc/vmess
 mkdir -p /etc/vless
 mkdir -p /etc/trojan
 mkdir -p /etc/shadowsocks
+mkdir -p /etc/vmess/limit-ip
+mkdir -p /etc/vless/limit-ip
+mkdir -p /etc/trojan/limit-ip
+mkdir -p /etc/shadowsocks/limit-ip
 mkdir -p /usr/bin/xray/
 mkdir -p /var/log/xray/
 mkdir -p /home/vps/public_html
