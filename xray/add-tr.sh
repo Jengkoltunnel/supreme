@@ -108,9 +108,9 @@ sed -i '/#trojan-grpc$/a\#! '"$user $exp"'\
 #trojanlink2="trojan://${uuid}@${sts}${domain}:80?type=ws&security=none&host=${domain}&path=/trojan-ntls#XRAY_TROJAN_NTLS_${user}"
 #trojanlink3="trojan://${uuid}@${sts}${domain}:${tls}?allowInsecure=1&security=tls&host=${domain}&type=grpc&serviceName=trojan-grpc&sni=${sni}#XRAY_TROJAN_GRPC_${user}"
 #Test
-trojanlink1="trojan://$uuid@$domain:443?path=/trojan&security=tls&host=$domain&type=ws&sni=$domain#$user"
-trojanlink2="trojan://${uuid}@$domain:80?path=/trojan&security=none&host=$domain&type=ws#$user"
-trojanlink3="trojan://${uuid}@$domain:443?security=tls&encryption=none&type=grpc&serviceName=trojan-grpc&sni=$domain#$user"
+trojanlink1="trojan://$uuid@${sts}:443?path=/trojan&security=tls&host=$domain&type=ws&sni=$domain#$user"
+trojanlink2="trojan://${uuid}@${sts}:80?path=/trojan&security=none&host=$domain&type=ws#$user"
+trojanlink3="trojan://${uuid}@${sts}:443?security=tls&encryption=none&type=grpc&serviceName=trojan-grpc&sni=$domain#$user"
 
 cat > /home/vps/public_html/$user-TRTLS.yaml <<EOF
 port: 7890
