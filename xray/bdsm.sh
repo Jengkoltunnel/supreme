@@ -185,10 +185,10 @@ if [[ ${split} != "" ]]; then
         cem=$(cat /etc/trojan/limit-ip/${user} )
         if [[ ${result} -gt ${cem} ]]; then
          uuid=$(grep -wE "^#! $user" "/etc/trojan/.trojan.db" | cut -d ' ' -f 4 | sort | uniq)
-         exp=$(grep -wE "^#! $user" "/usr/local/etc/xray/trojanws.json" | cut -d ' ' -f 3 | sort | uniq)
+         exp=$(grep -wE "^#! $user" "/etc/xray/config.json" | cut -d ' ' -f 3 | sort | uniq)
          #locked akun 15 menit
          echo "restr ${user} ${exp} ${uuid}" | at now +15 minutes &> /dev/null
-	     sed -i "/^#! $user $exp/,/^},{/d" /usr/local/etc/xray/trojanws.json
+	     sed -i "/^#! $user $exp/,/^},{/d" /etc/xray/config.json
 	     systemctl restart xray &> /dev/null
          cum=$(cat /tmp/iplimtr | grep -w "${user}" | cut -d ' ' -f 2,3)
          
