@@ -302,6 +302,8 @@ Link none TLS    : ${trojanlink2}
 -------------------------------------------------------
 Link GRPC        : ${trojanlink3}
 -------------------------------------------------------
+Link none GRPC   : ${trojanlink4}
+-------------------------------------------------------
 END
 
 service cron restart
@@ -336,14 +338,14 @@ echo -e "Host XrayDNS   : ${NS}"
 echo -e "Pub Key        : ${PUB}" 
 echo -e "User Quota     : ${Quota} GB"
 echo -e "Wildcard       : (bug.com).${domain}"
-echo -e "Port TLS       : ${tls}"
-echo -e "Port none TLS  : 80, 8080, 8880"
-echo -e "Port gRPC      : ${tls}"
-echo -e "Port none gRPC : 80, 8080, 8880"
-echo -e "OpenClash Ws   : 443"
-echo -e "CDN TLS        : 443"
-echo -e "CDN No TLS     : 80, 8080, 8880"
-echo -e "CDN Grpc       : 443"
+echo -e "Port TLS       : ${tls}, 2053, 2083, 2087, 2096, 8443"
+echo -e "Port none TLS  : 80, 8080, 8880, 2052, 2082, 2086, 2095"
+echo -e "Port gRPC      : ${tls}, 2053, 2083, 2087, 2096, 8443"
+echo -e "Port none gRPC : 80, 8080, 8880, 2052, 2082, 2086, 2095"
+echo -e "OpenClash Ws   : 443, 2053, 2083, 2087, 2096, 8443"
+echo -e "CDN TLS        : 443, 2053, 2083, 2087, 2096, 8443"
+echo -e "CDN No TLS     : 80, 8080, 8880, 2052, 2082, 2086, 2095"
+echo -e "CDN Grpc       : 443, 2053, 2083, 2087, 2096, 8443"
 echo -e "Key            : ${uuid}"
 echo -e "Path Tls       : /trojan"
 echo -e "Path NTls      : /trojan"
