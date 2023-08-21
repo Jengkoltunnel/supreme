@@ -38,10 +38,10 @@ function vless(){
         rm -f /var/www/html/vless-$user.txt
 }
 function trojan(){
-    exp=$(grep -wE "^#! $user" "/etc/xray/config.json" | cut -d ' ' -f 3 | sort | uniq)
+    exp=$(grep -wE "^#! $user" "/usr/local/etc/xray/trojanws.json" | cut -d ' ' -f 3 | sort | uniq)
 	sed -i "/^#! $user $exp/,/^},{/d" /etc/trojan/.trojan.db
-	sed -i "/^#! $user $exp/,/^},{/d" /etc/xray/config.json
-	sed -i "/^#! $user $exp/,/^},{/d" /etc/xray/config.json
+	sed -i "/^#! $user $exp/,/^},{/d" /usr/local/etc/xray/trojanws.json
+	sed -i "/^#! $user $exp/,/^},{/d" /usr/local/etc/xray/trojanws.json
 	rm -f /etc/trojan/quota-asli/$user
 	rm -f /etc/trojan/quota-hasil/$user
 	rm -f /etc/trojan/limit/$user
