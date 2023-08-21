@@ -694,12 +694,15 @@ Link none TLS    : ${vmesslink2}
 -------------------------------------------------------
 Link GRPC        : ${vmesslink3}
 -------------------------------------------------------
+Link none GRPC   : ${vmesslink4}
+-------------------------------------------------------
 
 END
 
 vmesslink1="vmess://$(echo $asu | base64 -w 0)"
 vmesslink2="vmess://$(echo $ask | base64 -w 0)"
 vmesslink3="vmess://$(echo $grpc | base64 -w 0)"
+vmesslink4="vmess://$(echo $grpcn | base64 -w 0)"
 systemctl restart xray > /dev/null 2>&1
 service cron restart > /dev/null 2>&1
 
