@@ -588,8 +588,16 @@ echo -e "Wildcard       : (bug.com).${domain}" | tee -a /etc/log-create-user.log
 echo -e "Port TLS       : 443" | tee -a /etc/log-create-user.log
 echo -e "Port none TLS  : 80" | tee -a /etc/log-create-user.log
 echo -e "Port gRPC      : 443" | tee -a /etc/log-create-user.log
+echo -e "Port none gRPC : 80" | tee -a /etc/log-create-user.log
+echo -e "Port Openclash : 443" | tee -a /etc/log-create-user.log
+echo -e "Port Openclash : 80" | tee -a /etc/log-create-user.log
+echo -e "Port CDN       : 443" | tee -a /etc/log-create-user.log
+echo -e "Port NCDN      : 80" | tee -a /etc/log-create-user.log
+echo -e "Port CDN Grpc  : 443" | tee -a /etc/log-create-user.log
 echo -e "Password       : ${uuid}" | tee -a /etc/log-create-user.log
 echo -e "Ciphers        : ${cipher}" | tee -a /etc/log-create-user.log
+echo -e "HTTPS          : 2053, 2083, 2087, 2096, 8443" | tee -a /etc/log-create-user.log
+echo -e "HTTP           : 8080, 8880, 2052, 2082, 2086, 2095" | tee -a /etc/log-create-user.log
 echo -e "Network        : ws/grpc" | tee -a /etc/log-create-user.log
 echo -e "Path           : /ss-ws" | tee -a /etc/log-create-user.log
 echo -e "ServiceName    : ss-grpc" | tee -a /etc/log-create-user.log
