@@ -51,7 +51,7 @@ function con() {
 echo -n > /tmp/other.txt
 echo -n > /var/log/xray/access.log
 sleep 3
-data=( `cat /etc/xray/config.json | grep '^#!' | cut -d ' ' -f 2 | sort | uniq`);
+data=( `cat /usr/local/etc/xray/trojanws.json | grep '^#!' | cut -d ' ' -f 2 | sort | uniq`);
 echo -e " \033[31m##########\033[33m##########\033[32m##########\033[34m##########\033[35m##########\033[36m##########\e[0m"
 echo -e " \033[31m╭══════════════════════════════════════════════════════════╮\e[0m"
 echo -e " \033[34m│$NC\033[33m                  Chek User Login Trojan                  $NC\033[34m│\e[0m"
