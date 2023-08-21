@@ -41,7 +41,7 @@ domain=$IP
 fi
 PUB=$( cat /etc/slowdns/server.pub )
 NS=`cat /etc/xray/dns`
-
+CITY=$(curl -s ipinfo.io/city )
 tls="$(cat ~/log-install.txt | grep -w "Trojan WS TLS" | cut -d: -f2|sed 's/ //g')"
 ntls="$(cat ~/log-install.txt | grep -w "Trojan WS none TLS" | cut -d: -f2|sed 's/ //g')"
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
