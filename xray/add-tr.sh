@@ -259,7 +259,8 @@ echo -e "CDN TLS        : 443" | tee -a /etc/log-create-user.log
 echo -e "CDN No TLS     : 80" | tee -a /etc/log-create-user.log
 echo -e "CDN Grpc       : 443" | tee -a /etc/log-create-user.log
 echo -e "Key            : ${uuid}" | tee -a /etc/log-create-user.log
-echo -e "Path           : /trojan" | tee -a /etc/log-create-user.log
+echo -e "Path Tls       : /trojan-tls"
+echo -e "Path NTls      : /trojan-ntls"
 echo -e "ServiceName    : trojan-grpc" | tee -a /etc/log-create-user.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
 echo -e "Link TLS       : ${trojanlink1}" | tee -a /etc/log-create-user.log
