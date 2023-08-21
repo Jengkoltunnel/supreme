@@ -41,7 +41,7 @@ domain=$IP
 fi
 PUB=$( cat /etc/slowdns/server.pub )
 NS=`cat /etc/xray/dns`
-
+CITY=$(curl -s ipinfo.io/city )
 tls="$(cat ~/log-install.txt | grep -w "Vless TLS" | cut -d: -f2|sed 's/ //g')"
 none="$(cat ~/log-install.txt | grep -w "Vless none TLS" | cut -d: -f2|sed 's/ //g')"
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
@@ -660,7 +660,8 @@ Link none TLS : ${vlesslink2}
 -------------------------------------------------------
 Link GRPC     : ${vlesslink3}
 -------------------------------------------------------
-
+Link none GRPC: ${vlesslink4}
+-------------------------------------------------------
 
 END
 
@@ -693,6 +694,7 @@ echo -e "Remarks        : ${user}" | tee -a /etc/log-create-user.log
 echo -e "Domain         : ${domain}" | tee -a /etc/log-create-user.log
 echo -e "Host XrayDNS   : ${NS}" | tee -a /etc/log-create-user.log
 echo -e "Pub Key        : ${PUB}" | tee -a /etc/log-create-user.log
+echo -e "City           : ${CITY}" | tee -a /etc/log-create-user.log
 echo -e "User Quota     : ${Quota} GB" | tee -a /etc/log-create-user.log
 echo -e "Limit IP       : ${iplim} IP" | tee -a /etc/log-create-user.log
 echo -e "Wildcard       : (bug.com).${domain}" | tee -a /etc/log-create-user.log
@@ -708,6 +710,8 @@ echo -e "CDN Grpc       : 443" | tee -a /etc/log-create-user.log
 echo -e "id             : ${uuid}" | tee -a /etc/log-create-user.log
 echo -e "Encryption     : none" | tee -a /etc/log-create-user.log
 echo -e "Network        : ws" | tee -a /etc/log-create-user.log
+echo -e "HTTPS          : 2053, 2083, 2087, 2096, 8443" | tee -a /etc/log-create-user.log
+echo -e "HTTP           : 8080, 8880, 2052, 2082, 2086, 2095" | tee -a /etc/log-create-user.log
 echo -e "Path           : /vless" | tee -a /etc/log-create-user.log
 echo -e "Path           : vless-grpc" | tee -a /etc/log-create-user.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
