@@ -111,6 +111,7 @@ sed -i '/#trojan-grpc$/a\#! '"$user $exp"'\
 trojanlink1="trojan://$uuid@${sts}:443?path=/trojan&security=tls&host=$domain&type=ws&sni=$domain#$user"
 trojanlink2="trojan://${uuid}@${sts}:80?path=/trojan&security=none&host=$domain&type=ws#$user"
 trojanlink3="trojan://${uuid}@${sts}:443?security=tls&encryption=none&type=grpc&serviceName=trojan-grpc&sni=$domain#$user"
+trojanlink4="trojan://${uuid}@${domain}:80?mode=gun&security=none&encryption=none&type=grpc&serviceName=trojan-grpc&sni=bug.com#${user}"
 
 cat > /home/vps/public_html/$user-TRTLS.yaml <<EOF
 port: 7890
@@ -267,8 +268,8 @@ echo -e "Link none TLS  : ${trojanlink2}" | tee -a /etc/log-create-user.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
 echo -e "Link gRPC      : ${trojanlink3}" | tee -a /etc/log-create-user.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
-#echo -e "Link gRPC      : ${trojanlink4}" | tee -a /etc/log-create-user.log
-#echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
+echo -e "Link none gRPC : ${trojanlink4}" | tee -a /etc/log-create-user.log
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
 echo -e "Yaml Clash Ws  : http://${IP}:81/$user-TRTLS.yaml"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
 echo -e "CDN TLS        : http://${IP}:81/$user-TRTLSCDN.yaml"
