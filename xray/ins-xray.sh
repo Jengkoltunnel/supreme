@@ -690,6 +690,20 @@ wget -O bot-cek-ssws "https://raw.githubusercontent.com/Jengkolonline/bot/main/b
 wget -O backupbot "https://raw.githubusercontent.com/Jengkolonline/bot/main/backupbot.sh" && chmod +x backupbot
 wget -O restorebot "https://raw.githubusercontent.com/Jengkoltunnel/supreme/main/restorebot.sh" && chmod +x restorebot
 sleep 0.5
+#menu shadowsoks2022
+wget -O shadowsocks2022 "https://raw.githubusercontent.com/Jengkoltunnel/supreme/main/xray/shadowsocks2022.sh"
+wget -O socks "https://raw.githubusercontent.com/Jengkoltunnel/supreme/main/xray/socks.sh"
+wget -O add-socks "https://raw.githubusercontent.com/Jengkoltunnel/supreme/main/xray/add-socks.sh"
+wget -O cek-socks "https://raw.githubusercontent.com/Jengkoltunnel/supreme/main/xray/cek-socks.sh"
+wget -O del-socks "https://raw.githubusercontent.com/Jengkoltunnel/supreme/main/xray/del-socks.sh"
+wget -O extend-socks "https://raw.githubusercontent.com/Jengkoltunnel/supreme/main/xray/extend-socks.sh"
+wget -O trialsocks "https://raw.githubusercontent.com/Jengkoltunnel/supreme/main/xray/trialsocks.sh"
+wget -O add-ss2022 "https://raw.githubusercontent.com/Jengkoltunnel/supreme/main/xray/add-ss2022.sh"
+wget -O cek-ss2022 "https://raw.githubusercontent.com/Jengkoltunnel/supreme/main/xray/cek-ss2022.sh"
+wget -O del-ss2022 "https://raw.githubusercontent.com/Jengkoltunnel/supreme/main/xray/del-ss2022.sh"
+wget -O extend-ss2022 "https://raw.githubusercontent.com/Jengkoltunnel/supreme/main/xray/extend-ss2022.sh"
+wget -O trialss2022 "https://raw.githubusercontent.com/Jengkoltunnel/supreme/main/xray/trialss2022.sh"
+sleep 0.5
 yellow() { echo -e "\\033[33;1m${*}\\033[0m"; }
 yellow "xray/Vmess"
 yellow "xray/Vless"
