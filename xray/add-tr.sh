@@ -249,14 +249,16 @@ echo -e "Host XrayDNS   : ${NS}" | tee -a /etc/log-create-user.log
 echo -e "Pub Key        : ${PUB}" | tee -a /etc/log-create-user.log
 echo -e "User Quota     : ${Quota} GB" | tee -a /etc/log-create-user.log
 echo -e "Limit IP       : ${iplim} IP" | tee -a /etc/log-create-user.log
-echo -e "Wildcard       : (bug.com).${domain}" | tee -a /etc/log-create-user.log
-echo -e "Port TLS       : 443" | tee -a /etc/log-create-user.log
-echo -e "Port none TLS  : 80" | tee -a /etc/log-create-user.log
-echo -e "Port gRPC      : 443" | tee -a /etc/log-create-user.log
-echo -e "OpenClash Ws   : 443" | tee -a /etc/log-create-user.log
-echo -e "CDN TLS        : 443" | tee -a /etc/log-create-user.log
-echo -e "CDN No TLS     : 80" | tee -a /etc/log-create-user.log
-echo -e "CDN Grpc       : 443" | tee -a /etc/log-create-user.log
+echo -e "City           : ${CITY}" | tee -a /etc/log-create-user.log
+echo -e "Wildcard       : ${sts}.${domain}" | tee -a /etc/log-create-user.log
+echo -e "Port TLS       : ${tls}, 2053, 2083, 2087, 2096, 8443" | tee -a /etc/log-create-user.log
+echo -e "Port none TLS  : 80, 8080, 8880, 2052, 2082, 2086, 2095" | tee -a /etc/log-create-user.log
+echo -e "Port gRPC      : ${tls}, 2053, 2083, 2087, 2096, 8443" | tee -a /etc/log-create-user.log
+echo -e "Port none gRPC : 80, 8080, 8880, 2052, 2082, 2086, 2095" | tee -a /etc/log-create-user.log
+echo -e "OpenClash Ws   : 443, 2053, 2083, 2087, 2096, 8443" | tee -a /etc/log-create-user.log
+echo -e "CDN TLS        : 443, 2053, 2083, 2087, 2096, 8443" | tee -a /etc/log-create-user.log
+echo -e "CDN No TLS     : 80, 8080, 8880, 2052, 2082, 2086, 2095" | tee -a /etc/log-create-user.log
+echo -e "CDN Grpc       : 443, 2053, 2083, 2087, 2096, 8443" | tee -a /etc/log-create-user.log
 echo -e "Key            : ${uuid}" | tee -a /etc/log-create-user.log
 echo -e "Path Tls       : /trojan-tls"
 echo -e "Path NTls      : /trojan-ntls"
