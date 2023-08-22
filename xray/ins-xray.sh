@@ -57,14 +57,10 @@ touch /etc/trojan/.trojan.db
 touch /etc/ssh/.ssh.db
 touch /etc/shadowsocks/.shadowsocks.db
 #Install Mode Xray
-rm -f /usr/local/bin/xray
 latest_version="$(curl -s https://api.github.com/repos/XTLS/Xray-core/releases | grep tag_name | sed -E 's/.*"v(.*)".*/\1/' | head -n 1)"
 xraycore_link="https://github.com/XTLS/Xray-core/releases/download/v$latest_version/xray-linux-64.zip"
 echo -e "[ ${green}INFO$NC ] Downloading & Installing xray core"
-if [ -f "/usr/local/bin/xray" ]; then
-echo "sudah ada core, mulai proses over write"
-clear
-else
+echo -e ""
 echo "belum ada core, mulai proses download core"
 echo -e "${GB}[ INFO ]${NC} ${YB}Downloading Xray-Core Official Terbaru${NC}"
 sleep 0.5
@@ -96,9 +92,6 @@ rm -rf /etc/vless/.vless.db
 rm -rf /etc/trojan/.trojan.db
 rm -rf /etc/shadowsocks/.shadowsocks.db
 rm -rf /etc/ssh/.ssh.db
-mkdir -p /backup
-mkdir -p /backup/xray.official.backup
-mkdir -p /backup/xray.mod.backup
 mkdir -p /etc/xray
 mkdir -p /etc/vmess
 mkdir -p /etc/vless
