@@ -56,9 +56,9 @@ CITY=$(curl -s ipinfo.io/city )
 tls="$(cat ~/log-install.txt | grep -w "Trojan WS TLS" | cut -d: -f2|sed 's/ //g')"
 ntls="$(cat ~/log-install.txt | grep -w "Trojan WS none TLS" | cut -d: -f2|sed 's/ //g')"
 user=trial`</dev/urandom tr -dc X-Z0-9 | head -c4`
+uuid=$(cat /proc/sys/kernel/random/uuid)
 Quota=1
 masaaktif=1
-uuid=$(cat /proc/sys/kernel/random/uuid)
 exp=$(date -d "$masaaktif days" +"%Y-%m-%d")
 tgl=$(date -d "$masaaktif days" +"%d")
 bln=$(date -d "$masaaktif days" +"%b")
@@ -360,8 +360,8 @@ echo -e "Link none TLS  : ${trojanlink2}"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "Link gRPC      : ${trojanlink3}"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "Link none gRPC : ${trojanlink4}"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+#echo -e "Link none gRPC : ${trojanlink4}"
+#echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "Yaml Clash Ws  : http://${domain}:81/$user-TRTLS.yaml"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" 
 echo -e "CDN TLS        : http://${domain}:81/$user-TRTLSCDN.yaml"
